@@ -1,7 +1,8 @@
 INSTALL BPMS
 ============
 These scripts simplify creating a clean, never-been-run installation
-of BPMS 6.4.
+of BPMS 6.4.  This has been tested and confirmed to work on RHEL
+using the PostgreSQL packages provided by RHEL.
 
 Initial Install of BPMS
 -----------------------
