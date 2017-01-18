@@ -1,0 +1,21 @@
+#
+# This creates a PostgreSQL data source consistent with the example
+# in section 6.8.1 of the JBoss EAP 6.4 Administration and Configuration
+# Guide at URL:
+#
+#   https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.4/html-single/Administration_and_Configuration_Guide/#Example_PostgreSQL_Datasource1
+#
+
+batch
+
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+
+/subsystem=datasources/data-source=PostgreSQLDS:add(jndi-name="java:jboss/datasources/PostgreSQLDS",connection-url="jdbc:postgresql://localhost:5432/jbpm",driver-name=postgresql,user-name=jbpm,password=jbpm,validate-on-match=true,background-validation=false,valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker,exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter)
+
+/subsystem=datasources/data-source=PostgreSQLKIEDS:add(jndi-name="java:jboss/datasources/PostgreSQLKIEDS",connection-url="jdbc:postgresql://localhost:5432/jbpmkie",driver-name=postgresql,user-name=jbpm,password=jbpm,validate-on-match=true,background-validation=false,valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker,exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter)
+
+/subsystem=datasources/data-source=PostgreSQLDS:enable
+/subsystem=datasources/data-source=PostgreSQLKIEDS:enable
+
+run-batch
+
