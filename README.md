@@ -10,7 +10,7 @@ Make sure to populate the dist directory with the files listed in
 its README.md.
 
 The eap-auto.xml and bpms-auto.xml scripts will be automatically
-set so that so that the '''<installpath/>''' element matches the intended
+set so that so that the ~~~~<installpath/>~~~~ element matches the intended
 installation location.  This script will install BPMS 6.4 in the
 same directory as these scripts.  These scripts will install the
 software in:
@@ -18,7 +18,7 @@ software in:
     $HOME/demo/bpms-6.4/bpms/jboss-eap-6.4
 
 If you change that location, also edit demo.conf and make sure that
-'''JBOSS_HOME''' matches the new location.
+~~~~JBOSS_HOME~~~~ matches the new location.
 
 To remove an installation, simply type:
 
