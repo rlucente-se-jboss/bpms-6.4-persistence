@@ -8,6 +8,10 @@ PUSHD ${WORK_DIR}
     ./clean.sh
     cmdok
 
+    # set the installation path to "${JBOSS_HOME}"
+    sed "s,PUT_INSTALL_PATH_HERE,${JBOSS_HOME},g" eap-auto.xml.orig > eap-auto.xml
+    sed "s,PUT_INSTALL_PATH_HERE,${JBOSS_HOME},g" bpms-auto.xml.orig > bpms-auto.xml
+
     echo -n "Installing EAP ... "
     java -jar ${BIN_DIR}/jboss-eap-${VER_EAP_DIST}-installer.jar eap-auto.xml -variablefile eap-auto.xml.variables &> /dev/null
     cmdok
